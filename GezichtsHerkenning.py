@@ -98,12 +98,9 @@ def grow_search(image, background, itterations = 1000):
         last_overlap = mask.sum()
         if i % 25 == 0:
             print("Itteration: ", i, "Overlap: ", last_overlap)
-            plt.axis('off')
-            plt.imshow(mask, cmap='gray')
-            plt.savefig('images/overlap/overlap' + str(i) + '.png', bbox_inches='tight')
-            
+                        
     result = image ^ mask
-    largestCC = getLargestCC(result)
+    largestCC = getLargestCC(result)    
     return (largestCC[0], largestCC[1])
 
 def main():
@@ -125,7 +122,6 @@ def main():
     ax.add_patch(rectangle)
     ax.imshow(image)
     plt.show()
-    
     
 if __name__ == '__main__':
     main()
